@@ -1,9 +1,8 @@
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import background from './background.jpg';
 import './App.css';
-import RainOnImage from "./components/RainOnImage";
 var ons = require('onsenui');
 var Ons = require('react-onsenui');
 
@@ -11,20 +10,47 @@ var Ons = require('react-onsenui');
 
 
 class App extends Component {
-  
+  divStyle = {
+    color: 'black',
+    backgroundColor: 'blue',
+  };
+  pageBackground
   render() {
     return (
-      <MyPage>
-      </MyPage>
+      <Ons.Page id={'weatherPage'}>
+        <Ons.Card>
+
+          <Ons.Row>
+            <Ons.Col>
+              <div class="box" style={this.divStyle}>Responsive</div>
+
+            </Ons.Col>
+            <Ons.Col>
+              <div class="box" style={this.divStyle}>Responsive</div>
+
+            </Ons.Col>
+          </Ons.Row>
+          <Ons.Row>
+            <div class="box" style={this.divStyle}>Responsive</div>
+
+          </Ons.Row>
+
+
+        </Ons.Card>
+      </Ons.Page>
     );
   }
 }
 
+
+
+
+
 class MyPage extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-    'index':0
+      'index': 0
     }
     this.renderToolbar = this.renderToolbar.bind(this);
     this.renderTabs = this.renderTabs.bind(this);
@@ -62,12 +88,11 @@ class MyPage extends Component {
           swipeable={true}
           position='auto'
           index={this.state.index}
-          onPreChange={(event) =>
-            {
-              if (event.index != this.state.index) {
-                this.setState({index: event.index});
-              }
+          onPreChange={(event) => {
+            if (event.index != this.state.index) {
+              this.setState({ index: event.index });
             }
+          }
           }
           renderTabs={this.renderTabs}
         />
@@ -76,15 +101,17 @@ class MyPage extends Component {
   }
 }
 
+
+
+
+
 class MyTab extends Component {
   render() {
     return (
       <Ons.Page>
-        <section style={{margin: '16px'}}>
+        <section style={{ margin: '16px' }}>
           <p>
             {this.props.content}.
-            <RainOnImage>
-            </RainOnImage>
           </p>
         </section>
       </Ons.Page>
