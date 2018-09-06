@@ -4,6 +4,6 @@
 ## Quick Start App
 - in folder ```express-server``` copy file ```.env_example``` and rename to ```.env``` then put your OpenWeatherMap.org app ID key in ```.env```
   
-- ```npm install``` packages for both express server (folder) and create-react-app (folder)
+- ```npm install``` (or ```yarn install```) packages for both express server (folder) and create-react-app (folder)
 
 - ```yarn dev``` can be used from the express-server directory to easily bring up express and react app server in development
