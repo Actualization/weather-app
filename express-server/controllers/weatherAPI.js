@@ -14,19 +14,41 @@ module.exports = {
         })
             .then(function (response) {
 
-                // forcast data to return
-                var forcast = {};
+                var currentDay = new Date()
+                var indexCurrentDayOfWeek = currentDay.getDay();
 
-                indexDayOfWeek = new Date().getDay();
-
-                forcast['days'] = []
+                //separate the forcasts into days
+                var days = []
                 for (i = 0; i < 5; i++) {
-                    forcast['days'].push({ dayName: dayIndexToDayName(indexDayOfWeek + i) });
+                    //If it is to late to get further forcasts for the same day begin with next day
+                    if (currentDay.setHours(0, 0, 0, 0) !== new Date(response.data.list[0].dt_txt).setHours(0, 0, 0, 0)) {
+                        currentDay.setDate(currentDay.getDate() + 1);
+                        indexCurrentDayOfWeek += 1;
+                    }
+
+                    var day = {};
+                    //increment currentDay after first loop
+                    if (i != 0) { currentDay.setDate(currentDay.getDate() + 1); }
+
+                    //add name of day
+                    day['dayName'] =  dayIndexToDayName(indexCurrentDayOfWeek + i);
+
+                    //add forcasts for that day into day
+                    day['forcasts'] = [];
+                    for (j = 0; j < response.data.list.length; j++) {
+                        //if the forcast is today
+                        if (currentDay.setHours(0, 0, 0, 0) === new Date(response.data.list[j].dt_txt).setHours(0, 0, 0, 0)) {
+                            day['forcasts'].push(response.data.list[j])
+                        }
+                    }
+                    days.push(day);
                 }
-                console.log(forcast);
+                
+                fiveDayForcast = {};
+                fiveDayForcast['city'] = response.data.city;
+                fiveDayForcast['days'] = days;
 
-
-                res.send(response.data);
+                res.send(JSON.stringify(fiveDayForcast));
             })
             .catch(function (error) {
                 console.log('error in fiveDayForcast API call: ' + error);
@@ -39,7 +61,6 @@ function dayIndexToDayName(dayNumb) {
     while (dayNumb > 6) {
         dayNumb = dayNumb - 7;
     }
-    console.log(dayNumb);
     switch (dayNumb) {
         case 0:
             dayOfWeek = "Sunday";
