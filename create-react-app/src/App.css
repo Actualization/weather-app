@@ -26,3 +26,28 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#weatherPage .page__background {
+  background-image: url('./background.jpg');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size: cover
+}
+
+@media (max-width: 700px) {
+  ons-row {
+    flex-direction: column;
+  }
+}
+
+#contentBackground {
+  background-color: orange;
+  opacity: .4;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10%;
+}
+
+#logo {
+  width: 100%;
+}

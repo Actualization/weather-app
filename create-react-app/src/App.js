@@ -3,6 +3,7 @@ import 'onsenui/css/onsen-css-components.css';
 import React, { Component } from 'react';
 import background from './background.jpg';
 import './App.css';
+import logo from './logo.jpg'
 var ons = require('onsenui');
 var Ons = require('react-onsenui');
 
@@ -12,26 +13,56 @@ var Ons = require('react-onsenui');
 class App extends Component {
   divStyle = {
     color: 'black',
-    backgroundColor: 'blue',
+    backgroundColor: 'blue'
   };
   pageBackground
   render() {
     return (
       <Ons.Page id={'weatherPage'}>
-        <Ons.Card>
+        <Ons.Card class={'center'} id={'contentBackground'}>
 
           <Ons.Row>
             <Ons.Col>
-              <div class="box" style={this.divStyle}>Responsive</div>
-
+              <img id={'logo'} src={logo}>
+              </img>
             </Ons.Col>
             <Ons.Col>
-              <div class="box" style={this.divStyle}>Responsive</div>
 
+              <div>Enter your city:</div>
+            </Ons.Col>
+            <Ons.Col>
+              <Ons.SearchInput
+                modifier='material'
+                placeholder='New York, United States' />
             </Ons.Col>
           </Ons.Row>
           <Ons.Row>
-            <div class="box" style={this.divStyle}>Responsive</div>
+
+            <Ons.Col>
+              <Ons.Card>
+              Day 1
+              </Ons.Card>
+            </Ons.Col>
+            <Ons.Col>
+              <Ons.Card>
+              Day 2
+              </Ons.Card>
+            </Ons.Col>
+            <Ons.Col>
+              <Ons.Card>
+              Day 3
+              </Ons.Card>
+            </Ons.Col>
+            <Ons.Col>
+              <Ons.Card>
+              Day 4
+              </Ons.Card>
+            </Ons.Col>
+            <Ons.Col>
+              <Ons.Card>
+              Day 5
+              </Ons.Card>
+            </Ons.Col>
 
           </Ons.Row>
 
