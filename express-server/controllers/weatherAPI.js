@@ -13,6 +13,14 @@ module.exports = {
             }
         })
             .then(function (response) {
+
+                // forcast data to return
+                var forcast;
+
+                indexDayOfWeek = new Date().getDay();
+                console.log(indexToDayName(indexDayOfWeek));
+
+                
                 res.send(response.data);
             })
             .catch(function (error) {
@@ -20,4 +28,31 @@ module.exports = {
                 res.status(500)
             })
     }
+}
+function indexToDayName(dayNumb){
+    switch (dayNumb) {
+        case 0:
+            dayOfWeek = "Sunday";
+            break;
+        case 1:
+            dayOfWeek = "Monday";
+            break;
+        case 2:
+            dayOfWeek = "Tuesday";
+            break;
+        case 3:
+            dayOfWeek = "Wednesday";
+            break;
+        case 4:
+            dayOfWeek = "Thrusday";
+            break;
+        case 5:
+            dayOfWeek = "Friday";
+            break;
+        case 6:
+            dayOfWeek = "Saturday";
+            break;
+    }
+    
+    return dayOfWeek;
 }
