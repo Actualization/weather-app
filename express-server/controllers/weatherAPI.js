@@ -13,7 +13,6 @@ module.exports = {
             }
         })
             .then(function (response) {
-                console.log(response.data);
                 res.send(response.data);
             })
             .catch(function (error) {

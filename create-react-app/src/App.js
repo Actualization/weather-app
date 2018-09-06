@@ -3,7 +3,8 @@ import 'onsenui/css/onsen-css-components.css';
 import React, { Component } from 'react';
 import background from './background.jpg';
 import './App.css';
-import logo from './logo.jpg'
+import logo from './logo.jpg';
+import internalAPI from './internalAPI/internalAPI';
 var ons = require('onsenui');
 var Ons = require('react-onsenui');
 
@@ -15,8 +16,8 @@ class App extends Component {
     color: 'black',
     backgroundColor: 'blue'
   };
-  pageBackground
   render() {
+    console.log('test' + internalAPI.fiveDayForcast('test'));
     return (
       <Ons.Page id={'weatherPage'}>
         <Ons.Card class={'center'} id={'contentBackground'}>
