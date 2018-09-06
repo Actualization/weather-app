@@ -15,12 +15,17 @@ module.exports = {
             .then(function (response) {
 
                 // forcast data to return
-                var forcast;
+                var forcast = {};
 
                 indexDayOfWeek = new Date().getDay();
-                console.log(indexToDayName(indexDayOfWeek));
 
-                
+                forcast['days'] = []
+                for (i = 0; i < 5; i++) {
+                    forcast['days'].push({ dayName: dayIndexToDayName(indexDayOfWeek + i) });
+                }
+                console.log(forcast);
+
+
                 res.send(response.data);
             })
             .catch(function (error) {
@@ -29,7 +34,12 @@ module.exports = {
             })
     }
 }
-function indexToDayName(dayNumb){
+
+function dayIndexToDayName(dayNumb) {
+    while (dayNumb > 6) {
+        dayNumb = dayNumb - 7;
+    }
+    console.log(dayNumb);
     switch (dayNumb) {
         case 0:
             dayOfWeek = "Sunday";
@@ -53,6 +63,6 @@ function indexToDayName(dayNumb){
             dayOfWeek = "Saturday";
             break;
     }
-    
+
     return dayOfWeek;
 }
