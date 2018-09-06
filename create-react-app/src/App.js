@@ -12,12 +12,28 @@ var Ons = require('react-onsenui');
 
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      fiveDayForcast: null
+    }
+    // this.renderToolbar = this.renderToolbar.bind(this);
+  }
+
+  async componentDidMount() {
+    let forcast = await internalAPI.fiveDayForcast('test');
+    this.setState((prevState) => ({ fiveDayForcast: forcast}));
+  }
+
   divStyle = {
     color: 'black',
     backgroundColor: 'blue'
   };
+
   render() {
-    console.log('test' + internalAPI.fiveDayForcast('test'));
+    // var jsonData = await internalAPI.fiveDayForcast('test')
+    console.log(this.state.fiveDayForcast);
     return (
       <Ons.Page id={'weatherPage'}>
         <Ons.Card class={'center'} id={'contentBackground'}>
@@ -41,27 +57,27 @@ class App extends Component {
 
             <Ons.Col>
               <Ons.Card>
-              Day 1
+                Day 1
               </Ons.Card>
             </Ons.Col>
             <Ons.Col>
               <Ons.Card>
-              Day 2
+                Day 2
               </Ons.Card>
             </Ons.Col>
             <Ons.Col>
               <Ons.Card>
-              Day 3
+                Day 3
               </Ons.Card>
             </Ons.Col>
             <Ons.Col>
               <Ons.Card>
-              Day 4
+                Day 4
               </Ons.Card>
             </Ons.Col>
             <Ons.Col>
               <Ons.Card>
-              Day 5
+                Day 5
               </Ons.Card>
             </Ons.Col>
 

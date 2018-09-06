@@ -4,7 +4,7 @@ const BASEURL = 'https://api.openweathermap.org'
 
 module.exports = {
     fiveDayForcast: function (req, res) {
-        console.log(BASEURL + '/data/2.5/forecast?q=London,us&mode=JSON&appid=' + process.env.OPENWEATHERMAP_APPID);
+        console.log('weatherAPI - fiveDayForcast called');
         axios.get(BASEURL + '/data/2.5/forecast', {
             params: {
                 q: 'London,us',
