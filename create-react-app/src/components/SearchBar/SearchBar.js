@@ -51,7 +51,7 @@ class SearchBar extends React.Component {
                         value={this.state.searchInvputValue}
                         placeholder='City'
                         onChange={this.handleChange} />
-                    <Ons.Button ripple='true' onClick={this.handleSubmit} >Search!</Ons.Button>
+                    <Ons.Button ripple='true' onClick={this.handleSubmit} >Get Weather!</Ons.Button>
 
                 </Ons.Col>
                 <Ons.Col>
