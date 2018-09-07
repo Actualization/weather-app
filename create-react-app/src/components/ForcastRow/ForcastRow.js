@@ -26,15 +26,15 @@ class ForcastRow extends React.Component {
         let time = this.formatDateAMPM(new Date(this.props.subForcastInfo.dt_txt))
         return (
             <React.Fragment>
-                <Ons.Row class='forcastRow'>
+                <Ons.Row className='forcastRow'>
                     <Ons.Col>
-                        <span class='forcastRow'>{time}</span>
+                        <span className='forcastRow'>{time}</span>
                     </Ons.Col>
                     <Ons.Col>
-                        <span class='forcastRow'>{this.props.subForcastInfo.weather[0].main}</span>
+                        <span className='forcastRow'>{this.props.subForcastInfo.weather[0].main}</span>
                     </Ons.Col>
                     <Ons.Col>
-                        <img class='forcastRow' src={'http://openweathermap.org/img/w/' + this.props.subForcastInfo.weather[0].icon + '.png'}></img>
+                        <img className='forcastRow' src={'http://openweathermap.org/img/w/' + this.props.subForcastInfo.weather[0].icon + '.png'}></img>
 
                     </Ons.Col>
 

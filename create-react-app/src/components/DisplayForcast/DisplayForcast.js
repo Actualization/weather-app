@@ -9,8 +9,8 @@ class DisplayForcast extends React.Component {
 
     render() {
         return (
-            <Ons.Card class='dayForcastCard'>
-                <div class='dayName'>
+            <Ons.Card className='dayForcastCard'>
+                <div className='dayName'>
                     {this.props.dayName}
                 </div>
                 <br></br>

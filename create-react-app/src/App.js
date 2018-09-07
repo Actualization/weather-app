@@ -20,7 +20,7 @@ class App extends Component {
     super(props);
     this.state = {
       fiveDayForcast: null,
-      cityMessage: null
+      cityMessage: null,
     }
 
     this.updateForcast = this.updateForcast.bind(this);
@@ -63,7 +63,7 @@ class App extends Component {
     // var jsonData = await internalAPI.fiveDayForcast('test')
     return (
       <Ons.Page id={'weatherPage'}>
-        <Ons.Card class={'center'} id={'contentBackground'}>
+        <Ons.Card className={'center'} id={'contentBackground'}>
 
           <Ons.Row>
             <Ons.Col>
@@ -75,7 +75,7 @@ class App extends Component {
           </Ons.Row>
 
           <Ons.Row>
-            <span class='cityName'>
+            <span className='cityName'>
               {this.state.cityMessage == null ? null : this.state.cityMessage}
             </span>
             <FiveDayForcast forcasts={this.state.fiveDayForcast}>

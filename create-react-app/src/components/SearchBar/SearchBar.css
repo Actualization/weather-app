@@ -4,11 +4,12 @@
     font-family: 'Lora', serif;
     font-size: 2em;
     margin-bottom: auto;
-    text-align: right;
+    text-align: left;
 }
 .promptText{
-    text-align: right;
+    text-align: left;
     vertical-align: bottom;
     margin-top:10%;
+    font-family: 'Lora', serif;
 }
 

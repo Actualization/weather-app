@@ -8,11 +8,13 @@ class SearchBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchInvputValue: ''
+            searchInvputValue: '',
+            previousCities: []
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handlePreviousCityClick = this.handlePreviousCityClick .bind(this);
     }
     /**
      * Update search box text
@@ -28,21 +30,33 @@ class SearchBar extends React.Component {
      */
     handleSubmit(event) {
         let city = this.state.searchInvputValue
+        this.setState({ previousCities: this.state.previousCities.concat(city) })
+        this.props.onSubmit(city);
+    }
+    handlePreviousCityClick(city){
         this.props.onSubmit(city);
     }
 
     render() {
+        let previousCities = this.state.previousCities.map(function (item, i) {
+            return <Ons.Button onClick={this.handlePreviousCityClick.bind(this,item)}>{item}</Ons.Button>
+        }, this)
         return (
             <React.Fragment>
-                <Ons.Col class='searchBar Aligner'>
-                    
-                    <span class='promptText Aligner-item'>Enter city:&nbsp;</span>
-                    <Ons.SearchInput class='promptText'
+                <Ons.Col className='searchBar'>
+
+                    <span className='promptText'>Enter city:&nbsp;</span>
+                    <Ons.SearchInput className='promptText'
                         modifier='material'
                         value={this.state.searchInvputValue}
                         placeholder='City'
                         onChange={this.handleChange} />
                     <Ons.Button ripple='true' onClick={this.handleSubmit} >Search!</Ons.Button>
+
+                </Ons.Col>
+                <Ons.Col>
+                    {this.state.previousCities.length < 1 ? null : <span>Previous Cities: &nbsp;</span>}
+                    {previousCities}
 
                 </Ons.Col>
             </React.Fragment>

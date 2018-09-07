@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
   background-color: #222;
   height: 150px;
@@ -18,15 +13,6 @@
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 #weatherPage .page__background {
   background-image: url('./background2.jpg');
   background-repeat: no-repeat;
@@ -34,7 +20,7 @@
   background-size: cover
 }
 
-@media (max-width: 700px) {
+@media (max-width: 780px) {
   ons-row {
     flex-direction: column;
   }
@@ -44,7 +30,7 @@
   background-color: rgba(211, 211, 211,.8);
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 10%;
+  margin-top: 3%;
 }
 
 #logo {
