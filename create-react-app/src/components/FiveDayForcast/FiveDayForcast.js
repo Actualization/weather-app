@@ -1,5 +1,6 @@
 import React from "react";
 import DisplayForcast from "../DisplayForcast";
+import './FiveDayForcast.css';
 var ons = require('onsenui');
 var Ons = require('react-onsenui');
 

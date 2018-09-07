@@ -15,7 +15,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fiveDayForcast: null
+      fiveDayForcast: null,
+      cityMessage: null
     }
 
     this.updateForcast = this.updateForcast.bind(this);
@@ -37,9 +38,20 @@ class App extends Component {
     }
     else if (forcast.status == 'city not found') {
       console.log(forcast.status)
+      this.setState((prevState) => (
+        {
+          fiveDayForcast: null,
+          cityMessage: 'City not found'
+        }
+      ));
     }
     else {
-      this.setState((prevState) => ({ fiveDayForcast: forcast }));
+      this.setState((prevState) => (
+        {
+          fiveDayForcast: forcast,
+          cityMessage: forcast.city.name
+        }
+      ));
     }
   }
 
@@ -55,12 +67,11 @@ class App extends Component {
               </img>
             </Ons.Col>
             <SearchBar onSubmit={this.updateForcast}>
-
             </SearchBar>
           </Ons.Row>
 
           <Ons.Row>
-            {this.state.fiveDayForcast == null? null :this.state.fiveDayForcast.city.name}
+            {this.state.cityMessage == null ? null : this.state.cityMessage}
             <FiveDayForcast forcasts={this.state.fiveDayForcast}>
             </FiveDayForcast>
           </Ons.Row>

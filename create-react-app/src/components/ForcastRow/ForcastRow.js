@@ -1,12 +1,13 @@
 import React from "react";
 import DisplayForcast from "../DisplayForcast";
+import './ForcastRow.css';
 var ons = require('onsenui');
 var Ons = require('react-onsenui');
 
 class ForcastRow extends React.Component {
 
 
-    formatAMPM(date) {
+    formatDateAMPM(date) {
         var hours = date.getHours();
         var minutes = date.getMinutes();
         var ampm = hours >= 12 ? 'PM' : 'AM';
@@ -19,13 +20,21 @@ class ForcastRow extends React.Component {
 
 
     render() {
-        let time = this.formatAMPM(new Date(this.props.subForcastInfo.dt_txt))
+        let time = this.formatDateAMPM(new Date(this.props.subForcastInfo.dt_txt))
         return (
             <React.Fragment>
-                <Ons.Row>
-                    <div>{time}</div>
-                    <div>{this.props.subForcastInfo.weather[0].main}</div>
-                    <img src={'http://openweathermap.org/img/w/' + this.props.subForcastInfo.weather[0].icon + '.png'}></img>
+                <Ons.Row class='forcastRow'>
+                    <Ons.Col>
+                        <span class='forcastRow'>{time}</span>
+                    </Ons.Col>
+                    <Ons.Col>
+                        <span class='forcastRow'>{this.props.subForcastInfo.weather[0].main}</span>
+                    </Ons.Col>
+                    <Ons.Col>
+                        <img class='forcastRow' src={'http://openweathermap.org/img/w/' + this.props.subForcastInfo.weather[0].icon + '.png'}></img>
+
+                    </Ons.Col>
+
                 </Ons.Row>
             </React.Fragment>
         )

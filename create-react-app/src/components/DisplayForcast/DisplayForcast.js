@@ -1,6 +1,7 @@
 import React from "react";
 import { forcePlatformStyling } from "onsenui";
 import ForcastRow from '../ForcastRow';
+import('./DisplayForcast.css')
 var ons = require('onsenui');
 var Ons = require('react-onsenui');
 
@@ -16,10 +17,11 @@ class DisplayForcast extends React.Component {
         // }
         // else {
 
-        console.log(this.props.forcast)
         return (
             <Ons.Card>
-                {this.props.dayName}
+                <div class='dayName'>
+                    {this.props.dayName}
+                </div>
                 {
                     this.props.forcast.map(function (item, i) {
                         return <ForcastRow subForcastInfo={item} key={item.dt}></ForcastRow>
