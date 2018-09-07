@@ -36,7 +36,6 @@ class App extends Component {
 
   render() {
     // var jsonData = await internalAPI.fiveDayForcast('test')
-    console.log(this.state.fiveDayForcast);
     return (
       <Ons.Page id={'weatherPage'}>
         <Ons.Card class={'center'} id={'contentBackground'}>

@@ -14,29 +14,32 @@ class FiveDayForcast extends React.Component {
             );
         }
         else {
-            console.log(this.props.forcasts.days[0]);
+            console.log(this.props.forcasts.days[1])
             return (
                 <React.Fragment>
+                    {this.props.forcasts.city.name}
+                    <Ons.Row>
                     <Ons.Col>
-                        <DisplayForcast forcast={this.props.forcasts.days[0]}>
+                        <DisplayForcast dayName={this.props.forcasts.days[0].dayName} forcast={this.props.forcasts.days[0].forcasts}>
                         </DisplayForcast>
                     </Ons.Col>
                     <Ons.Col>
-                        <DisplayForcast forcast={this.props.forcasts.days[1]}>
+                        <DisplayForcast dayName={this.props.forcasts.days[1].dayName} forcast={this.props.forcasts.days[1].forcasts}>
                         </DisplayForcast>
                     </Ons.Col>
                     <Ons.Col>
-                        <DisplayForcast forcast={this.props.forcasts.days[2]}>
+                        <DisplayForcast dayName={this.props.forcasts.days[2].dayName} forcast={this.props.forcasts.days[2].forcasts}>
                         </DisplayForcast>
                     </Ons.Col>
                     <Ons.Col>
-                        <DisplayForcast forcast={this.props.forcasts.days[3]}>
+                        <DisplayForcast dayName={this.props.forcasts.days[3].dayName} forcast={this.props.forcasts.days[3].forcasts}>
                         </DisplayForcast>
                     </Ons.Col>
                     <Ons.Col>
-                        <DisplayForcast forcast={this.props.forcasts.days[4]}>
+                        <DisplayForcast dayName={this.props.forcasts.days[4].dayName} forcast={this.props.forcasts.days[4].forcasts}>
                         </DisplayForcast>
                     </Ons.Col>
+                    </Ons.Row>
                 </React.Fragment>
             );
         }

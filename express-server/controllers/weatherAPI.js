@@ -20,19 +20,19 @@ module.exports = {
 
                 //separate the forcasts into days
                 var days = []
-                for (i = 0; i < 5; i++) {
-                    //If it is to late to get further forcasts for the same day begin with next day
-                    if (currentDay.setHours(0, 0, 0, 0) !== new Date(response.data.list[0].dt_txt).setHours(0, 0, 0, 0)) {
-                        currentDay.setDate(currentDay.getDate() + 1);
-                        indexCurrentDayOfWeek += 1;
+                for (i = 0; i < 6; i++) {
+                    //During first loop if too late to get further forcasts for the same day, begin with next day
+                    if (i == 0) {
+                        if (currentDay.setHours(0, 0, 0, 0) !== new Date(response.data.list[0].dt_txt).setHours(0, 0, 0, 0)) {
+                            currentDay.setDate(currentDay.getDate() + 1);
+                            indexCurrentDayOfWeek += 1;
+                        }
                     }
 
                     var day = {};
-                    //increment currentDay after first loop
-                    if (i != 0) { currentDay.setDate(currentDay.getDate() + 1); }
 
                     //add name of day
-                    day['dayName'] =  dayIndexToDayName(indexCurrentDayOfWeek + i);
+                    day['dayName'] = dayIndexToDayName(indexCurrentDayOfWeek);
 
                     //add forcasts for that day into day
                     day['forcasts'] = [];
@@ -43,8 +43,11 @@ module.exports = {
                         }
                     }
                     days.push(day);
+                    //increment after first loop
+                    currentDay.setDate(currentDay.getDate() + 1);
+                    indexCurrentDayOfWeek += 1;
                 }
-                
+
                 fiveDayForcast = {};
                 fiveDayForcast['city'] = response.data.city;
                 fiveDayForcast['days'] = days;
