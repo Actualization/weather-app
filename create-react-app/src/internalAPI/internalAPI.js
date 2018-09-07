@@ -1,6 +1,9 @@
 import axios from 'axios';
 
 export default {
+    /**
+     * Calls to internal API for forcast
+     */
     fiveDayForcast: async function (location) {
         return axios.post('/api/forcast', {
             params: {

@@ -1,5 +1,5 @@
 import React from "react";
-import ('./SearchBar.css');
+import('./SearchBar.css');
 var ons = require('onsenui');
 var Ons = require('react-onsenui');
 
@@ -14,11 +14,18 @@ class SearchBar extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
+    /**
+     * Update search box text
+     * @param {event} event 
+     */
     handleChange(event) {
         this.setState({ searchInvputValue: event.target.value });
     }
 
+    /**
+     * Handle submit button event
+     * @param {event} event 
+     */
     handleSubmit(event) {
         let city = this.state.searchInvputValue
         this.props.onSubmit(city);
@@ -28,9 +35,8 @@ class SearchBar extends React.Component {
         return (
             <React.Fragment>
                 <Ons.Col class='searchBar Aligner'>
+                    
                     <span class='promptText Aligner-item'>Enter city:&nbsp;</span>
-         
-
                     <Ons.SearchInput class='promptText'
                         modifier='material'
                         value={this.state.searchInvputValue}

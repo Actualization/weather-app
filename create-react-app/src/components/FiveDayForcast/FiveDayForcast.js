@@ -6,16 +6,14 @@ var Ons = require('react-onsenui');
 
 class FiveDayForcast extends React.Component {
     render() {
-        // console.log(this.props.forcasts.city);
         if (this.props.forcasts == null) {
             return (
                 <React.Fragment>
-
+                    
                 </React.Fragment>
             );
         }
         else {
-            console.log(this.props.forcasts.days[1])
             return (
                 <React.Fragment>
                     <Ons.Row>

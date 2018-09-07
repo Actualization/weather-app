@@ -6,7 +6,10 @@ var Ons = require('react-onsenui');
 
 class ForcastRow extends React.Component {
 
-
+    /**
+     * Convert Date object to string with AM/PM
+     * @param {Date} date 
+     */
     formatDateAMPM(date) {
         var hours = date.getHours();
         var minutes = date.getMinutes();

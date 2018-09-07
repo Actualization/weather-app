@@ -11,6 +11,9 @@ import SearchBar from './components/SearchBar';
 var ons = require('onsenui');
 var Ons = require('react-onsenui');
 
+/**
+ * Base React component for the application
+ */
 class App extends Component {
 
   constructor(props) {
@@ -28,7 +31,7 @@ class App extends Component {
   }
 
   /**
-   * 
+   * Retreve new forcast data
    * @param {String} city city name
    */
   async updateForcast(city) {
