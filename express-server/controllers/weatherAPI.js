@@ -9,6 +9,7 @@ module.exports = {
             params: {
                 q: 'London,us',
                 mode: 'JSON',
+                units: 'imperial',
                 appid: process.env.OPENWEATHERMAP_APPID
             }
         })
@@ -48,7 +49,7 @@ module.exports = {
                 fiveDayForcast['city'] = response.data.city;
                 fiveDayForcast['days'] = days;
 
-                res.send(JSON.stringify(fiveDayForcast));
+                res.send(fiveDayForcast);
             })
             .catch(function (error) {
                 console.log('error in fiveDayForcast API call: ' + error);

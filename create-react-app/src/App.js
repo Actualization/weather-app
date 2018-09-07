@@ -5,6 +5,7 @@ import background from './background.jpg';
 import './App.css';
 import logo from './logo.jpg';
 import internalAPI from './internalAPI/internalAPI';
+import FiveDayForcast from './components/FiveDayForcast';
 var ons = require('onsenui');
 var Ons = require('react-onsenui');
 
@@ -18,18 +19,20 @@ class App extends Component {
     this.state = {
       fiveDayForcast: null
     }
-    // this.renderToolbar = this.renderToolbar.bind(this);
+
+    // this.updateForcast();
+
+    this.updateForcast = this.updateForcast.bind(this);
   }
 
   async componentDidMount() {
+    this.updateForcast();
+  }
+
+  async updateForcast() {
     let forcast = await internalAPI.fiveDayForcast('test');
     this.setState((prevState) => ({ fiveDayForcast: forcast}));
   }
-
-  divStyle = {
-    color: 'black',
-    backgroundColor: 'blue'
-  };
 
   render() {
     // var jsonData = await internalAPI.fiveDayForcast('test')
@@ -53,36 +56,11 @@ class App extends Component {
                 placeholder='New York, United States' />
             </Ons.Col>
           </Ons.Row>
+
           <Ons.Row>
-
-            <Ons.Col>
-              <Ons.Card>
-                Day 1
-              </Ons.Card>
-            </Ons.Col>
-            <Ons.Col>
-              <Ons.Card>
-                Day 2
-              </Ons.Card>
-            </Ons.Col>
-            <Ons.Col>
-              <Ons.Card>
-                Day 3
-              </Ons.Card>
-            </Ons.Col>
-            <Ons.Col>
-              <Ons.Card>
-                Day 4
-              </Ons.Card>
-            </Ons.Col>
-            <Ons.Col>
-              <Ons.Card>
-                Day 5
-              </Ons.Card>
-            </Ons.Col>
-
+            <FiveDayForcast forcasts={this.state.fiveDayForcast}>
+            </FiveDayForcast>
           </Ons.Row>
-
 
         </Ons.Card>
       </Ons.Page>
