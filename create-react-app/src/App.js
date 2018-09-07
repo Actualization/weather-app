@@ -24,13 +24,23 @@ class App extends Component {
   async componentDidMount() {
     this.updateForcast('New York');
   }
+
   /**
    * 
    * @param {String} city city name
    */
   async updateForcast(city) {
     let forcast = await internalAPI.fiveDayForcast(city);
-    this.setState((prevState) => ({ fiveDayForcast: forcast}));
+
+    if (forcast.status == 'error') {
+      console.log('Error in update Forcast' + forcast)
+    }
+    else if (forcast.status == 'city not found') {
+      console.log(forcast.status)
+    }
+    else {
+      this.setState((prevState) => ({ fiveDayForcast: forcast }));
+    }
   }
 
   render() {
@@ -44,12 +54,13 @@ class App extends Component {
               <img id={'logo'} src={logo}>
               </img>
             </Ons.Col>
-            <SearchBar>
+            <SearchBar onSubmit={this.updateForcast}>
 
             </SearchBar>
           </Ons.Row>
 
           <Ons.Row>
+            {this.state.fiveDayForcast == null? null :this.state.fiveDayForcast.city.name}
             <FiveDayForcast forcasts={this.state.fiveDayForcast}>
             </FiveDayForcast>
           </Ons.Row>

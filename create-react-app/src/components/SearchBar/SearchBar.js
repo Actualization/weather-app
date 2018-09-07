@@ -19,7 +19,8 @@ class SearchBar extends React.Component {
     }
 
     handleSubmit(event) {
-        alert('submit ' + this.state.searchInvputValue);
+        let city = this.state.searchInvputValue
+        this.props.onSubmit(city);
     }
 
     render() {

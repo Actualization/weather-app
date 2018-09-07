@@ -7,7 +7,7 @@ class FiveDayForcast extends React.Component {
     render() {
         // console.log(this.props.forcasts.city);
         if (this.props.forcasts == null) {
-            return(
+            return (
                 <React.Fragment>
 
                 </React.Fragment>
@@ -17,28 +17,27 @@ class FiveDayForcast extends React.Component {
             console.log(this.props.forcasts.days[1])
             return (
                 <React.Fragment>
-                    {this.props.forcasts.city.name}
                     <Ons.Row>
-                    <Ons.Col>
-                        <DisplayForcast dayName={this.props.forcasts.days[0].dayName} forcast={this.props.forcasts.days[0].forcasts}>
-                        </DisplayForcast>
-                    </Ons.Col>
-                    <Ons.Col>
-                        <DisplayForcast dayName={this.props.forcasts.days[1].dayName} forcast={this.props.forcasts.days[1].forcasts}>
-                        </DisplayForcast>
-                    </Ons.Col>
-                    <Ons.Col>
-                        <DisplayForcast dayName={this.props.forcasts.days[2].dayName} forcast={this.props.forcasts.days[2].forcasts}>
-                        </DisplayForcast>
-                    </Ons.Col>
-                    <Ons.Col>
-                        <DisplayForcast dayName={this.props.forcasts.days[3].dayName} forcast={this.props.forcasts.days[3].forcasts}>
-                        </DisplayForcast>
-                    </Ons.Col>
-                    <Ons.Col>
-                        <DisplayForcast dayName={this.props.forcasts.days[4].dayName} forcast={this.props.forcasts.days[4].forcasts}>
-                        </DisplayForcast>
-                    </Ons.Col>
+                        <Ons.Col>
+                            <DisplayForcast dayName={this.props.forcasts.days[0].dayName} forcast={this.props.forcasts.days[0].forcasts}>
+                            </DisplayForcast>
+                        </Ons.Col>
+                        <Ons.Col>
+                            <DisplayForcast dayName={this.props.forcasts.days[1].dayName} forcast={this.props.forcasts.days[1].forcasts}>
+                            </DisplayForcast>
+                        </Ons.Col>
+                        <Ons.Col>
+                            <DisplayForcast dayName={this.props.forcasts.days[2].dayName} forcast={this.props.forcasts.days[2].forcasts}>
+                            </DisplayForcast>
+                        </Ons.Col>
+                        <Ons.Col>
+                            <DisplayForcast dayName={this.props.forcasts.days[3].dayName} forcast={this.props.forcasts.days[3].forcasts}>
+                            </DisplayForcast>
+                        </Ons.Col>
+                        <Ons.Col>
+                            <DisplayForcast dayName={this.props.forcasts.days[4].dayName} forcast={this.props.forcasts.days[4].forcasts}>
+                            </DisplayForcast>
+                        </Ons.Col>
                     </Ons.Row>
                 </React.Fragment>
             );

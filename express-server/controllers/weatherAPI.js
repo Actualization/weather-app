@@ -56,7 +56,12 @@ module.exports = {
             })
             .catch(function (error) {
                 console.log('error in fiveDayForcast API call: ' + error);
-                res.status(500)
+                if (error.response.data.message == 'city not found') {
+                    res.status(500).send('city not found')
+                }
+                else {
+                    res.status(500)
+                }
             })
     }
 }
