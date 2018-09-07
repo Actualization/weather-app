@@ -1,4 +1,5 @@
 import React from "react";
+import ('./SearchBar.css');
 var ons = require('onsenui');
 var Ons = require('react-onsenui');
 
@@ -26,12 +27,11 @@ class SearchBar extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Ons.Col>
-                    <div>Enter your city:</div>
-                </Ons.Col>
-                <Ons.Col>
+                <Ons.Col class='searchBar Aligner'>
+                    <span class='promptText Aligner-item'>Enter city:&nbsp;</span>
+         
 
-                    <Ons.SearchInput
+                    <Ons.SearchInput class='promptText'
                         modifier='material'
                         value={this.state.searchInvputValue}
                         placeholder='City'

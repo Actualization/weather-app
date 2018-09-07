@@ -18,10 +18,11 @@ class DisplayForcast extends React.Component {
         // else {
 
         return (
-            <Ons.Card>
+            <Ons.Card class='dayForcastCard'>
                 <div class='dayName'>
                     {this.props.dayName}
                 </div>
+                <br></br>
                 {
                     this.props.forcast.map(function (item, i) {
                         return <ForcastRow subForcastInfo={item} key={item.dt}></ForcastRow>

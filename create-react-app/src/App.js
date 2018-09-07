@@ -1,9 +1,10 @@
+import './Fonts.css';
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
 import React, { Component } from 'react';
 import background from './background.jpg';
 import './App.css';
-import logo from './logo.jpg';
+import logo from './logo.png';
 import internalAPI from './internalAPI/internalAPI';
 import FiveDayForcast from './components/FiveDayForcast';
 import SearchBar from './components/SearchBar';
@@ -71,7 +72,9 @@ class App extends Component {
           </Ons.Row>
 
           <Ons.Row>
-            {this.state.cityMessage == null ? null : this.state.cityMessage}
+            <span class='cityName'>
+              {this.state.cityMessage == null ? null : this.state.cityMessage}
+            </span>
             <FiveDayForcast forcasts={this.state.fiveDayForcast}>
             </FiveDayForcast>
           </Ons.Row>

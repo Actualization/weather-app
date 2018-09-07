@@ -1583,7 +1583,6 @@ class RainOnImage extends React.Component {
                 <div id={'rainParent'} >
                 <img src={background} id={'background'} ></img>
                 </div>
-                PLACE HOLDER FOR BACKGROUND
             </div>
         );
     }

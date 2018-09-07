@@ -1,3 +1,9 @@
 .dayName{
     text-align: center;
+    font-family: 'Lora', serif;
+    font-weight: bold;
+}
+.dayForcastCard{
+    font-family: 'Lora', serif;
+    background: rgb(223, 223, 223,1)
 }

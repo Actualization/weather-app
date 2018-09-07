@@ -28,7 +28,7 @@
 }
 
 #weatherPage .page__background {
-  background-image: url('./background.jpg');
+  background-image: url('./background2.jpg');
   background-repeat: no-repeat;
   background-size: auto;
   background-size: cover
@@ -41,13 +41,18 @@
 }
 
 #contentBackground {
-  background-color: orange;
-  opacity: .4;
+  background-color: rgba(211, 211, 211,.8);
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 10%;
 }
 
 #logo {
-  width: 100%;
+  width: 60%;
+}
+
+.cityName{
+  font-family: 'Lora', serif;
+  font-size: 2em;
+  font-weight: bold;
 }
