@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default {
     fiveDayForcast: async function (location) {
-        return axios.get('/api/forcast', {
+        return axios.post('/api/forcast', {
             params: {
                 location: location
             }

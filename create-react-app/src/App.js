@@ -6,11 +6,9 @@ import './App.css';
 import logo from './logo.jpg';
 import internalAPI from './internalAPI/internalAPI';
 import FiveDayForcast from './components/FiveDayForcast';
+import SearchBar from './components/SearchBar';
 var ons = require('onsenui');
 var Ons = require('react-onsenui');
-
-
-
 
 class App extends Component {
 
@@ -20,17 +18,18 @@ class App extends Component {
       fiveDayForcast: null
     }
 
-    // this.updateForcast();
-
     this.updateForcast = this.updateForcast.bind(this);
   }
 
   async componentDidMount() {
-    this.updateForcast();
+    this.updateForcast('New York');
   }
-
-  async updateForcast() {
-    let forcast = await internalAPI.fiveDayForcast('test');
+  /**
+   * 
+   * @param {String} city city name
+   */
+  async updateForcast(city) {
+    let forcast = await internalAPI.fiveDayForcast(city);
     this.setState((prevState) => ({ fiveDayForcast: forcast}));
   }
 
@@ -45,15 +44,9 @@ class App extends Component {
               <img id={'logo'} src={logo}>
               </img>
             </Ons.Col>
-            <Ons.Col>
+            <SearchBar>
 
-              <div>Enter your city:</div>
-            </Ons.Col>
-            <Ons.Col>
-              <Ons.SearchInput
-                modifier='material'
-                placeholder='New York, United States' />
-            </Ons.Col>
+            </SearchBar>
           </Ons.Row>
 
           <Ons.Row>
@@ -66,84 +59,5 @@ class App extends Component {
     );
   }
 }
-
-
-
-
-
-class MyPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      'index': 0
-    }
-    this.renderToolbar = this.renderToolbar.bind(this);
-    this.renderTabs = this.renderTabs.bind(this);
-  }
-  getInitialState() {
-    return {
-      index: 0
-    }
-  }
-  renderToolbar() {
-    const titles = ['Home', 'Settings'];
-    return (
-      <Ons.Toolbar>
-        <div className='center'>{titles[this.state.index]}</div>
-      </Ons.Toolbar>
-    );
-  }
-  renderTabs() {
-    return [
-      {
-        content: <MyTab content="Welcome home" />,
-        tab: <Ons.Tab label='Home' icon='md-home' />
-      },
-      {
-        content: <MyTab content="Change the settings" />,
-        tab: <Ons.Tab label='Settings' icon='md-settings' />
-      }
-    ];
-  }
-
-  render() {
-    return (
-      <Ons.Page renderToolbar={this.renderToolbar}>
-        <Ons.Tabbar
-          swipeable={true}
-          position='auto'
-          index={this.state.index}
-          onPreChange={(event) => {
-            if (event.index != this.state.index) {
-              this.setState({ index: event.index });
-            }
-          }
-          }
-          renderTabs={this.renderTabs}
-        />
-      </Ons.Page>
-    );
-  }
-}
-
-
-
-
-
-class MyTab extends Component {
-  render() {
-    return (
-      <Ons.Page>
-        <section style={{ margin: '16px' }}>
-          <p>
-            {this.props.content}.
-          </p>
-        </section>
-      </Ons.Page>
-    );
-  }
-}
-
-
 
 export default App;

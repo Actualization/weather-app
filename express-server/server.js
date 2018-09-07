@@ -14,7 +14,7 @@ app.get('/api/hello', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
 
-app.get('/api/forcast', (req, res) => {
+app.post('/api/forcast', (req, res) => {
   weatherAPI.fiveDayForcast (req, res);
 });
 

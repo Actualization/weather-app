@@ -7,7 +7,7 @@ module.exports = {
         console.log('weatherAPI - fiveDayForcast called');
         axios.get(BASEURL + '/data/2.5/forecast', {
             params: {
-                q: 'London,us',
+                q: req.body.params.location,
                 mode: 'JSON',
                 units: 'imperial',
                 appid: process.env.OPENWEATHERMAP_APPID
